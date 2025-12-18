@@ -5,7 +5,17 @@ import bundle from './bundle.js';
 import size from './size.js';
 
 const app = express();
-app.get("/", (req, res) => {
+app.use(express.json());
+
+app.post("/chat", (req, res) => {
+  const userMessage = req.body.message || "";
+
+  res.json({
+    reply:
+      "Hi 👋 I’m Vibrae AI. I can help you find outfits, suggest bundles, explain sizes and prices. You said: " +
+      userMessage
+  });
+});app.get("/", (req, res) => {
   res.send("Vibrae AI backend is live 🚀");
 });
 
