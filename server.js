@@ -14,7 +14,13 @@ app.post("/chat", (req, res) => {
     reply:
       "Hi 👋 I’m Vibrae AI. I can help you find outfits, suggest bundles, explain sizes and prices. You said: " +
       userMessage
+  });app.post("/chat", async (req, res) => {
+  const userMessage = req.body.message;
+
+  res.json({
+    reply: "Hello from Vibrae AI 👋"
   });
+});
 });app.get("/", (req, res) => {
   res.send("Vibrae AI backend is live 🚀");
 });
